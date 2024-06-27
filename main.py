@@ -1,11 +1,12 @@
 import asyncio
+import logging
 import os
 from characterai import aiocai
 import websockets
 from dotenv import load_dotenv, dotenv_values 
 
 load_dotenv() 
-print("service start")
+logging.warning("service start")
 
 async def echo(websocket, path):
     char_id = path[1:]
@@ -26,7 +27,7 @@ async def echo(websocket, path):
 
 
 async def main():
-    async with websockets.serve(echo, "localhost", 8765):
+    async with websockets.serve(echo, "", 8765):
         await asyncio.Future()  # run forever
 
 

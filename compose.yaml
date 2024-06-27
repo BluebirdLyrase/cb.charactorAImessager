@@ -1,0 +1,7 @@
+services:
+  web:
+    container_name: charector-ai-messenger
+    build: .
+    ports:
+      - "8765:8765"
+      
